@@ -1,2 +1,0 @@
-<h2>Dependency Injection, Plugins, & Events</h2>
-When submitting a review on the product view page, make sure that the username does not contain dashes. If it does, show an error message. (Bluecom_Review)

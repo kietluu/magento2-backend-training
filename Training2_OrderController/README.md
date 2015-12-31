@@ -1,2 +1,0 @@
-<h2>Controller</h2>
-Create a new controller that takes orderID as a parameter and returns a json with information about order status, total, items (sku, item_id, price) and total invoiced. (Training2_OrderController)
