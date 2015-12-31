@@ -1,0 +1,2 @@
+<h2>Layout</h2>
+ For the controller created in Exercise 1, from the Controllers section add an interface so that if the parameter ?json=1 is not set, the page should render a normal 3-column UI with order status, total, and total invoiced amount on the page instead of returning the json. (Bluecom_OrderInfo)

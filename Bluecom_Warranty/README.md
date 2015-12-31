@@ -1,0 +1,2 @@
+<h2>Database</h2>
+Add a new attribute to the product (warranty, type text). Make it visible on the product view page. Implement a backend model that changes values such as “1” to “1 year”. Implement a frontend model that makes it bold. Assign the attribute to the Gear attribute set (from the install/upgrade script). (Bluecom_Warranty)
