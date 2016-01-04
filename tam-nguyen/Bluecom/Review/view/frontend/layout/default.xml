@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	<body>
+
+		<referenceBlock name="product.info.details">
+	 		<referenceBlock name="reviews.tab">
+			   	<action method='setTemplate'>
+			        <argument name="template" xsi:type="string">Bluecom_Review::review.phtml</argument>
+			    </action>
+			    <referenceBlock name="product.review.form" remove="true"/>
+			    <block class="Bluecom\Review\Block\Form" name="bluecom.product.review.form" as="bluecom_review_form">
+                    <container name="product.review.form.fields.before" as="form_fields_before" label="Review Form Fields Before"/>
+                </block>
+			</referenceBlock>
+		</referenceBlock>	
+
+
+
+<!-- 		<referenceBlock name="product.review.form">
+		   	<action method='setTemplate'>
+		        <argument name="template" xsi:type="string">Bluecom_Review::form.phtml</argument>
+		    </action>
+		</referenceBlock> -->
+
+
+
+
+	</body>
+</page>
