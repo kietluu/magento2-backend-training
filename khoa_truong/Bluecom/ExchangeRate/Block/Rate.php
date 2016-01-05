@@ -28,7 +28,7 @@ class Rate extends \Magento\Framework\View\Element\AbstractBlock
 
     public function _toHtml()
     {
-        $client = $this->_clientFactory->create(['uri' => self::SOURCE_URL]);
+        $client = $this->_clientFactory->create(['uri' => self::EXCHANGE_SITE_URL]);
 
         try {
             $result = $client->request();

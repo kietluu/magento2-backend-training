@@ -15,7 +15,8 @@ class Review extends \Magento\Review\Model\Review
     {
         $errors = [];
 
-        $validator = new Regex(array('pattern' => '/^[a-zA-Z0-9]*-[-a-zA-Z0-9]*$/'));
+        //Can use pattern = '/^[a-zA-Z0-9]*-[-a-zA-Z0-9]*$/'
+        $validator = new Regex(array('pattern' => '/^[a-zA-Z0-9]*[^_]*$/'));
 
         if($validator->isValid($this->getNickname())) {
             $errors[] = __('Nickname should not contain dashes');

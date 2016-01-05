@@ -5,7 +5,7 @@ namespace Bluecom\SalesOrderJson\Controller\Info;
 use Magento\Framework\App\Action\Context as Context;
 use Magento\Framework\Registry as Registry;
 use Magento\Framework\View\Result\PageFactory as PageFactory;
-use Magento\Framework\Model\OrderFactory as OrderFactory;
+use Magento\Sales\Model\OrderFactory as OrderFactory;
 use Magento\Framework\Controller\Result\ForwardFactory as ForwardFactory;
 
 class Index extends \Bluecom\SalesOrder\Controller\Info\Index
