@@ -6,7 +6,6 @@ use Magento\Framework\App\RequestInterface as Request;
 
 class NoRouteHandler implements \Magento\Framework\App\Router\NoRouteHandlerInterface
 {
-
     /**
      * @param Request $request
      * @return bool
@@ -22,17 +21,17 @@ class NoRouteHandler implements \Magento\Framework\App\Router\NoRouteHandlerInte
 
         if($moduleName == 'catalog' && $actionPath == 'product' && $actionName == 'view') {
             $request->setModuleName('notfoundpages')
-                    ->setControllerName('norouter')
-                    ->setActionName('product');
+                ->setControllerName('noroute')
+                ->setActionName('product');
         } elseif($moduleName == 'catalog' && $actionPath == 'category' && $actionName == 'view') {
             $request->setModuleName('notfoundpages')
-                ->setControllerName('norouter')
+                ->setControllerName('noroute')
                 ->setActionName('category');
         } else {
             $request->setModuleName('notfoundpages')
-                ->setControllerName('norouter')
+                ->setControllerName('noroute')
                 ->setActionName('other');
         }
-        return true;
+        return false;
     }
 }
