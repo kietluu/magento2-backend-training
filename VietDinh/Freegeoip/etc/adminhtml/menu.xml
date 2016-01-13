@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Bluecom_Freegeoip::elements" title="Bluecom FreeGeoIp" module="Bluecom_Freegeoip" parent="Magento_Backend::content" sortOrder="1"  resource="Bluecom_Freegeoip::elements"/>
+        <add id="Bluecom_Freegeoip::visitor" title="Visitor Data" module="Bluecom_Freegeoip" parent="Bluecom_Freegeoip::elements" sortOrder="10" action="visitordata/visitor/" resource="Bluecom_VdFreeGeoIp::vdfreegeoip_visitor"/>
+    </menu>
+</config>
