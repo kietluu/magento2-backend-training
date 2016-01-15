@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block class="TanDinh\Banner\Block\Adminhtml\Sliders" name="adminhtml.block.slider.list">
+                <block class="Magento\Backend\Block\Widget\Grid" name="adminhtml.block.promo.slider.grid" as="grid">
+                    <arguments>
+                        <argument name="id" xsi:type="string">tandinh_banner_sliders_grid</argument>
+                        <argument name="dataSource" xsi:type="object">TanDinh\Banner\Model\Resource\Sliders\Collection</argument>
+                        <argument name="default_sort" xsi:type="string">sort_order</argument>
+                        <argument name="default_dir" xsi:type="string">ASC</argument>
+                        <argument name="save_parameters_in_session" xsi:type="string">1</argument>
+                    </arguments>
+                    <block class="Magento\Backend\Block\Widget\Grid\ColumnSet" as="grid.columnSet" name="adminhtml.promo.quote.grid.columnSet">
+                        <arguments>
+                            <argument name="rowUrl" xsi:type="array">
+                                <item name="path" xsi:type="string">tandinh_banner/*/edit</item>
+                                <item name="extraParamsTemplate" xsi:type="array">
+                                    <item name="id" xsi:type="string">getId</item>
+                                </item>
+                            </argument>
+                        </arguments>
+                        <block class="Magento\Backend\Block\Widget\Grid\Column" as="id">
+                            <arguments>
+                                <argument name="header" xsi:type="string" translate="true">ID</argument>
+                                <argument name="index" xsi:type="string">id</argument>
+                                <argument name="column_css_class" xsi:type="string">col-id</argument>
+                                <argument name="header_css_class" xsi:type="string">col-id</argument>
+                            </arguments>
+                        </block>
+
+                        <block class="Magento\Backend\Block\Widget\Grid\Column" as="image">
+                            <arguments>
+                                <argument name="header" xsi:type="string" translate="true">Image</argument>
+                                <argument name="index" xsi:type="string">image</argument>
+                            </arguments>
+                        </block>
+                        <block class="Magento\Backend\Block\Widget\Grid\Column" as="banner">
+                            <arguments>
+                                <argument name="header" xsi:type="string" translate="true">Banner</argument>
+                                <argument name="index" xsi:type="string">banner</argument>
+                            </arguments>
+                        </block>
+                        <block class="Magento\Backend\Block\Widget\Grid\Column" as="title">
+                            <arguments>
+                                <argument name="header" xsi:type="string" translate="true">Title</argument>
+                                <argument name="index" xsi:type="string">title</argument>
+                            </arguments>
+                        </block>
+                        <block class="Magento\Backend\Block\Widget\Grid\Column" as="start_date">
+                            <arguments>
+                                <argument name="header" xsi:type="string" translate="true">Start Date</argument>
+                                <argument name="index" xsi:type="string">start_date</argument>
+                            </arguments>
+                        </block>
+                        <block class="Magento\Backend\Block\Widget\Grid\Column" as="end_date">
+                            <arguments>
+                                <argument name="header" xsi:type="string" translate="true">End Date</argument>
+                                <argument name="index" xsi:type="string">end_date</argument>
+                            </arguments>
+                        </block>
+                    </block>
+                </block>
+            </block>
+        </referenceContainer>
+    </body>
+</page>
