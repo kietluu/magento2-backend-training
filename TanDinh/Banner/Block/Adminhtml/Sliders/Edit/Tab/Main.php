@@ -121,20 +121,24 @@ class Main extends Generic implements TabInterface
                 'values' => $options
             ]
         );
+
         if (!$model->getBanner()) {
             $model->setData('banner', '1');
         }
 
-        $fieldSet->addField(
-            'alt',
-            'text',
-            ['name' => 'alt', 'label' => __('Alt'), 'title' => __('Alt'), 'required' => true]
-        );
+
         $fieldSet->addField(
             'url',
             'text',
             ['name' => 'url', 'label' => __('Url'), 'title' => __('Url'), 'required' => true]
         );
+
+        $fieldSet->addField(
+            'alt',
+            'text',
+            ['name' => 'alt', 'label' => __('Alt'), 'title' => __('Alt'), 'required' => false]
+        );
+
 
         $dateFormat = $this->_localeDate->getDateFormat(
             \IntlDateFormatter::SHORT

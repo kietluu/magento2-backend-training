@@ -20,6 +20,7 @@ class Edit extends \TanDinh\Banner\Controller\Adminhtml\Banners
         }
 
         $data = $this->_objectManager->get('Magento\Backend\Model\Session')->getPageData(true);
+
         if (!empty($data)) {
             $model->addData($data);
         }

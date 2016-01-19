@@ -15,6 +15,7 @@ class Save extends \TanDinh\Banner\Controller\Adminhtml\Banners
                     [],
                     $data
                 );
+
                 $data = $inputFilter->getUnescaped();
 
                 $id = $this->getRequest()->getParam('id');
@@ -26,7 +27,6 @@ class Save extends \TanDinh\Banner\Controller\Adminhtml\Banners
                 }
                 $model->setData($data);
 
-
                 if (isset($data['image'])) {
                     $imageData = $data['image'];
                     unset($data['image']);
@@ -35,30 +35,32 @@ class Save extends \TanDinh\Banner\Controller\Adminhtml\Banners
                 }
 
                 $imageHelper = $this->_objectManager->get('TanDinh\Banner\Helper\Data');
+
                 if (isset($imageData['delete']) && $model->getImage()) {
-                    $imageHelper->removeImage($model->getImage());
+                    $imageHelper->removeImage($imageData['value']);
                     $model->setImage(null);
-                }
+                } else {
+                    $imageFile = $imageHelper->uploadImage('image');
 
-                $imageFile = $imageHelper->uploadImage('image');
-                if ($imageFile) {
-                    $model->setImage($imageFile);
+                    if ($imageFile != false) {
+                        $model->setImage($imageFile);
+                    }else{
+                        $model->setImage($imageData['value']);
+                    }
                 }
-
 
 
                 $session = $this->_objectManager->get('Magento\Backend\Model\Session');
                 $session->setPageData($model->getData());
                 $model->save();
 
-
                 $this->messageManager->addSuccess(__('You saved the slider.'));
                 $session->setPageData(false);
                 if ($this->getRequest()->getParam('back')) {
-                    $this->_redirect('tandinh_banner/*/edit', ['id' => $model->getId()]);
+                    $this->_redirect('tandinh_banner/sliders/edit', ['id' => $model->getId()]);
                     return;
                 }
-                $this->_redirect('tandinh_banner/*/');
+                $this->_redirect('tandinh_banner/sliders/');
                 return;
 
             } catch (\Magento\Framework\Exception\LocalizedException $e) {
@@ -71,6 +73,11 @@ class Save extends \TanDinh\Banner\Controller\Adminhtml\Banners
                 }
                 return;
             } catch (\Exception $e) {
+
+                echo "<pre>";
+                print_r($e);
+                die;
+
                 $this->messageManager->addError(
                     __('Something went wrong while saving the item data. Please review the error log.')
                 );
