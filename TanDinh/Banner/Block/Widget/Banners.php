@@ -1,11 +1,9 @@
 <?php
-
-namespace TanDinh\Banner\Block;
-
+namespace TanDinh\Banner\Block\Widget;
 use Magento\Framework\View\Element\Template\Context;
-
-class Sliders extends \Magento\Framework\View\Element\Template
+class Banners extends \Magento\Framework\View\Element\Template implements \Magento\Widget\Block\BlockInterface
 {
+
 
     protected $_data;
     protected $_slidersModel;
@@ -16,16 +14,23 @@ class Sliders extends \Magento\Framework\View\Element\Template
      */
     public function __construct(Context $context, \TanDinh\Banner\Model\Sliders $slidersModel,  array $data = [])
     {
+        $this->_data = $data;
         $this->_slidersModel = $slidersModel;
         parent::__construct($context, $data);
     }
 
-    /**
-     * @return string
-     */
-    public function getSlider()
+    public function _toHtml()
     {
-        $bannerId = $this->_data['banner_id'];
+        $this->setTemplate('widget/banner.phtml');
+        return parent::_toHtml();
+    }
+
+    /**
+     * @param $bannerId
+     * @return mixed
+     */
+    public function getSlider($bannerId)
+    {
         $itemsCollection = $this->_slidersModel->getCollection()
             ->addFieldToFilter('banner', array('eq' => $bannerId))
             ->addFieldToFilter('status', array('eq' => 1));

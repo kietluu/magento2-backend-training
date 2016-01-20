@@ -15,7 +15,6 @@ class Index extends \TanDinh\Banner\Controller\Adminhtml\Banners
     public function execute()
     {
         $resultPage = $this->resultPageFactory->create();
-        // $resultPage->setActiveMenu('TanDinh_Banner::banner');
         $resultPage->getConfig()->getTitle()->prepend(__('TanDinh Banners'));
         $resultPage->addBreadcrumb(__('TanDinh'), __('TanDinh'));
         $resultPage->addBreadcrumb(__('Banners'), __('Banners'));

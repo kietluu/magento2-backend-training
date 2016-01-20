@@ -4,6 +4,7 @@ namespace TanDinh\Banner\Model;
 
 class Banners extends \Magento\Framework\Model\AbstractModel
 {
+
     /**
      * Constructor
      *
@@ -14,5 +15,4 @@ class Banners extends \Magento\Framework\Model\AbstractModel
         parent::_construct();
         $this->_init('TanDinh\Banner\Model\Resource\Banners');
     }
-
 }
