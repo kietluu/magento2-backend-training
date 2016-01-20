@@ -2,15 +2,11 @@
 
 namespace TanDinh\Banner\Block\Adminhtml\Banners\Edit\Tab;
 
-
 use Magento\Backend\Block\Widget\Form\Generic;
 use Magento\Backend\Block\Widget\Tab\TabInterface;
 
-
-
 class Main extends Generic implements TabInterface
 {
-
 
     /**
      * @return \Magento\Framework\Phrase
@@ -54,8 +50,6 @@ class Main extends Generic implements TabInterface
         $form = $this->_formFactory->create();
         $form->setHtmlIdPrefix('item_');
         $fieldSet = $form->addFieldset('base_fieldset', ['legend' => __('Banner Information')]);
-
-
         if ($model->getId()) {
             $fieldSet->addField('id', 'hidden', ['name' => 'id']);
         }
@@ -79,43 +73,7 @@ class Main extends Generic implements TabInterface
         if (!$model->getStatus()) {
             $model->setData('status', '1');
         }
-
-        $fieldSet->addField(
-            'show_title',
-            'select',
-            [
-                'label' => __('Show Title'),
-                'title' => __('Show Title'),
-                'name' => 'show_title',
-                'required' => true,
-                'options' => ['1' => __('Enabled'), '0' => __('Disabled')]
-            ]
-        );
-        if (!$model->getShowTitle()) {
-            $model->setData('show_title', '1');
-        }
-
-        $fieldSet->addField(
-            'slider_code',
-            'select',
-            [
-                'label' => __('Slider Code'),
-                'title' => __('Slider Code'),
-                'name' => 'slider_code',
-                'required' => true,
-                'options' => ['1' => __('Enabled'), '0' => __('Disabled')]
-            ]
-        );
-        if (!$model->getSliderCode()) {
-            $model->setData('slider_code', '1');
-        }
-
-
-
-
-
         $form->setValues($model->getData());
-
         $this->setForm($form);
         return parent::_prepareForm();
     }

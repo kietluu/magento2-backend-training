@@ -8,10 +8,6 @@
                     <argument name="name" xsi:type="string">main_section</argument>
                     <argument name="block" xsi:type="string">tandinh_banner_banners_edit_tab_main</argument>
                 </action>
-                <action method="addTab">
-                    <argument name="name" xsi:type="string">slider_section</argument>
-                    <argument name="block" xsi:type="string">adminhtml.block.slider.list</argument>
-                </action>
             </block>
         </referenceContainer>
         <referenceContainer name="content">
