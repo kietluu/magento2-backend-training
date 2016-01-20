@@ -1,13 +1,13 @@
 <?php
-/**
- * Copyright © 2015 TanDinh. All rights reserved.
- */
 
 namespace TanDinh\Banner\Controller\Adminhtml\Banners;
 
 class Delete extends \TanDinh\Banner\Controller\Adminhtml\Banners
 {
 
+    /**
+     * execute
+     */
     public function execute()
     {
         $id = $this->getRequest()->getParam('id');

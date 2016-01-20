@@ -1,7 +1,4 @@
 <?php
-/**
- * Copyright © 2015 TanDinh. All rights reserved.
- */
 
 namespace TanDinh\Banner\Controller\Adminhtml\Sliders;
 

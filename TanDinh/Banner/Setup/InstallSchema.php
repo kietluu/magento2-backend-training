@@ -33,8 +33,8 @@ class InstallSchema implements InstallSchemaInterface
                 'Title'
             )->addColumn(
                 'show_title',
-                \Magento\Framework\DB\Ddl\Table::TYPE_BLOB,null,
-                ['default' => null , 'nullable' => false],
+                \Magento\Framework\DB\Ddl\Table::TYPE_BLOB, null,
+                ['default' => null, 'nullable' => false],
                 'Show Title'
             )->addColumn(
                 'status',
@@ -48,6 +48,18 @@ class InstallSchema implements InstallSchemaInterface
                 255,
                 ['default' => null],
                 'Embed Code'
+            )->addColumn(
+                'creation_time',
+                \Magento\Framework\DB\Ddl\Table::TYPE_TIMESTAMP,
+                null,
+                ['nullable' => false, 'default' => \Magento\Framework\DB\Ddl\Table::TIMESTAMP_INIT],
+                'Creation Time'
+            )->addColumn(
+                'update_time',
+                \Magento\Framework\DB\Ddl\Table::TYPE_TIMESTAMP,
+                null,
+                ['nullable' => false, 'default' => \Magento\Framework\DB\Ddl\Table::TIMESTAMP_INIT_UPDATE],
+                'Modification Time'
             );
 
         $installer->getConnection()->createTable($table);
@@ -118,6 +130,18 @@ class InstallSchema implements InstallSchemaInterface
                 null,
                 ['default' => null],
                 'Target'
+            )->addColumn(
+                'creation_time',
+                \Magento\Framework\DB\Ddl\Table::TYPE_TIMESTAMP,
+                null,
+                ['nullable' => false, 'default' => \Magento\Framework\DB\Ddl\Table::TIMESTAMP_INIT],
+                'Creation Time'
+            )->addColumn(
+                'update_time',
+                \Magento\Framework\DB\Ddl\Table::TYPE_TIMESTAMP,
+                null,
+                ['nullable' => false, 'default' => \Magento\Framework\DB\Ddl\Table::TIMESTAMP_INIT_UPDATE],
+                'Modification Time'
             );
         $installer->getConnection()->createTable($table);
         $installer->endSetup();

@@ -1,7 +1,5 @@
 <?php
-/**
- * Copyright © 2015 TanDinh. All rights reserved.
- */
+
 namespace TanDinh\Banner\Block\Adminhtml\Banners\Edit;
 
 class Form extends \Magento\Backend\Block\Widget\Form\Generic

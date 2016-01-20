@@ -112,13 +112,13 @@ class Main extends Generic implements TabInterface
 
         $fieldSet->addField(
             'banner',
-            'multiselect',
+            'select',
             [
                 'label' => __('Banner'),
                 'title' => __('Banner'),
                 'name' => 'banner',
                 'required' => true,
-                'values' => $options
+                'options' => $options
             ]
         );
 
@@ -183,8 +183,9 @@ class Main extends Generic implements TabInterface
         $options = [];
         $items = $this->_bannerModel->getCollection()->getData();
         foreach ($items as $item) {
-            $options[] = ['label' => $item['title'], 'value' => $item['id']];
+            $options[$item['id']] = $item['title'];
         }
         return $options;
+
     }
 }
