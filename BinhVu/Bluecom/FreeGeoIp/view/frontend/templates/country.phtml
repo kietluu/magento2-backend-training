@@ -1,0 +1,8 @@
+<?php
+    $country = $block->getCountry();
+    if($country):
+?>
+    <div style="display: inline-block; padding-right: 50px;"><?php echo $country; ?></div>
+<?php else: ?>
+    <?php echo __('Unknown Country'); ?>
+<?php endif; ?>
